@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate — Home Care Uganda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="donate">
+
+<header>
+  <nav>
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-name">Home Care Uganda<small>SCHOOL &amp; FAMILY ORGANIZATION</small></div>
+    </div>
+    <button class="hamburger" id="hamburger">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a data-nav="home" href="index.html">Home</a>
+      <a data-nav="about" href="about.html">About Us</a>
+      <a data-nav="programs" href="programs.html">Programs</a>
+      <a data-nav="volunteer" href="volunteer.html">Volunteer</a>
+      <a data-nav="register" href="register.html">Register a Child</a>
+      <a data-nav="contact" href="contact.html">Contact</a>
+      <a data-nav="donate" href="donate.html" class="cta">Donate</a>
+    </div>
+  </nav>
+</header>
+
+<!-- DONATION HERO with illustrated background art (child at a water source, drawn in-house — not a stock photo) -->
+<div class="donate-hero">
+  <div class="donate-hero-art" aria-hidden="true">
+    <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+      <!-- sun -->
+      <circle cx="300" cy="90" r="66" fill="rgba(227,168,87,0.22)"/>
+      <!-- ground -->
+      <line x1="40" y1="530" x2="380" y2="530" stroke="rgba(227,168,87,0.25)" stroke-width="2" stroke-dasharray="4 8"/>
+      <!-- well / water point -->
+      <rect x="255" y="470" width="70" height="16" rx="4" fill="rgba(246,240,228,0.10)"/>
+      <path d="M270 470 v-40 a20 20 0 0140 0 v40" fill="none" stroke="rgba(227,168,87,0.35)" stroke-width="4"/>
+      <circle cx="290" cy="430" r="6" fill="rgba(227,168,87,0.4)"/>
+      <!-- water droplets -->
+      <path d="M300 500 q5 8 0 14 q-5-2-5-8 q0-4 5-6z" fill="rgba(120,180,200,0.35)"/>
+      <path d="M270 505 q4 6 0 11 q-4-1-4-6 q0-3 4-5z" fill="rgba(120,180,200,0.3)"/>
+      <!-- child figure carrying jerrycan -->
+      <g>
+        <circle cx="150" cy="230" r="24" fill="rgba(246,240,228,0.16)"/>
+        <path d="M128 254 Q118 300 122 400 Q126 470 150 505 Q174 470 178 400 Q182 300 172 254 Q150 240 128 254 Z" fill="rgba(246,240,228,0.10)" stroke="rgba(227,168,87,0.30)" stroke-width="2"/>
+        <path d="M128 265 Q95 285 90 330 Q88 350 105 355" fill="none" stroke="rgba(227,168,87,0.30)" stroke-width="5" stroke-linecap="round"/>
+        <path d="M172 265 Q205 285 210 330 Q212 350 195 355" fill="none" stroke="rgba(227,168,87,0.30)" stroke-width="5" stroke-linecap="round"/>
+        <rect x="120" y="185" width="60" height="42" rx="8" fill="rgba(227,168,87,0.35)" stroke="rgba(227,168,87,0.5)" stroke-width="2"/>
+        <path d="M132 185 v-10 h36 v10" fill="none" stroke="rgba(227,168,87,0.5)" stroke-width="3"/>
+        <path d="M138 460 Q140 490 145 515 M162 460 Q160 490 155 515" fill="none" stroke="rgba(227,168,87,0.30)" stroke-width="6" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </div>
+  <div class="donate-hero-inner">
+    <p class="eyebrow light">DONATE</p>
+    <h1>Some children walk miles just to find water. Your gift shortens that walk.</h1>
+    <p class="lead">Every donation — big or small, one-time or monthly — goes straight into shelter, food, clean water, and school materials for the children in our care.</p>
+
+    <div class="tier-toggle" role="group" aria-label="Donation frequency">
+      <button type="button" class="active">One-time</button>
+      <button type="button">Monthly</button>
+    </div>
+
+    <div class="tier-grid">
+      <div class="tier-card" data-amount="15">
+        <div class="amt">$15</div>
+        <div class="impact">Clean water access for a child for one month</div>
+      </div>
+      <div class="tier-card selected" data-amount="30">
+        <div class="amt">$30</div>
+        <div class="impact">A full week of meals for one child</div>
+      </div>
+      <div class="tier-card" data-amount="60">
+        <div class="amt">$60</div>
+        <div class="impact">School supplies and uniform for a term</div>
+      </div>
+      <div class="tier-card" data-amount="120">
+        <div class="amt">$120</div>
+        <div class="impact">A month of shelter, food, and care for one child</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="block tight">
+  <div class="donate-form-panel fade-in">
+    <p class="eyebrow">COMPLETE YOUR DONATION</p>
+    <h2 style="font-size:1.5rem; margin-top:6px; margin-bottom:6px;">Choose an amount and a way to give.</h2>
+    <p style="margin-bottom:0;">Pick a suggested tier above, or enter your own amount below.</p>
+
+    <div class="custom-amount-row">
+      <input type="number" id="customAmount" placeholder="Enter a custom amount (USD)" min="1">
+      <span style="font-size:0.85rem; color:var(--ink-soft);">Every amount matters — there's no gift too small.</span>
+    </div>
+
+    <p style="margin-top:26px; margin-bottom:8px; font-weight:700; font-size:0.9rem;">Choose a payment method</p>
+    <div class="donate-methods">
+      <div class="method-chip active">Mobile Money</div>
+      <div class="method-chip">Bank Transfer</div>
+      <div class="method-chip">Card / PayPal</div>
+    </div>
+
+    <form data-validate style="margin-top:30px;">
+      <div class="form-grid">
+        <div class="field">
+          <label for="d-name">Your full name *</label>
+          <input type="text" id="d-name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="d-email">Email address *</label>
+          <input type="email" id="d-email" name="email" required>
+        </div>
+        <div class="field full">
+          <label for="d-message">Leave a message for the children (optional)</label>
+          <textarea id="d-message" name="message" placeholder="A word of encouragement, or why you're giving..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:6px;">Continue to payment</button>
+      <p style="font-size:0.76rem; color:#9A9080; margin-top:14px; text-align:center;">
+        This currently sends the donor's details and intended amount to vicentark8@gmail.com — it does not process real payment yet. You'll still need to connect an actual payment provider (mobile money, Flutterwave, PayPal) separately so money can actually be collected.
+      </p>
+    </form>
+  </div>
+</section>
+
+<section class="block">
+  <div class="trust-band">
+    <div class="trust-item">
+      <h4>Where your money goes</h4>
+      <p>100% toward shelter, food, clean water, schooling, and care — no hidden fees, no middlemen.</p>
+    </div>
+    <div class="trust-item">
+      <h4>Can't give money?</h4>
+      <p><a href="volunteer.html" style="color:#fff; text-decoration:underline;">Give your time instead</a> — it matters just as much to these children.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col" style="max-width:280px;">
+      <h5>HOME CARE UGANDA</h5>
+      <p>A home, a school, and a family for orphaned and vulnerable children in Uganda — built from lived experience, sustained by community.</p>
+    </div>
+    <div class="footer-col">
+      <h5>EXPLORE</h5>
+      <a href="about.html">About Us</a>
+      <a href="programs.html">Programs</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="register.html">Register a Child</a>
+    </div>
+    <div class="footer-col">
+      <h5>SUPPORT</h5>
+      <a href="donate.html">Donate Money</a>
+      <a href="volunteer.html">Volunteer Your Time</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Home Care Uganda. Built with love — not a scam, just a promise kept.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

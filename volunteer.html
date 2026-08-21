@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer — Home Care Uganda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="volunteer">
+
+<header>
+  <nav>
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-name">Home Care Uganda<small>SCHOOL &amp; FAMILY ORGANIZATION</small></div>
+    </div>
+    <button class="hamburger" id="hamburger">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a data-nav="home" href="index.html">Home</a>
+      <a data-nav="about" href="about.html">About Us</a>
+      <a data-nav="programs" href="programs.html">Programs</a>
+      <a data-nav="volunteer" href="volunteer.html">Volunteer</a>
+      <a data-nav="register" href="register.html">Register a Child</a>
+      <a data-nav="contact" href="contact.html">Contact</a>
+      <a data-nav="donate" href="donate.html" class="cta">Donate</a>
+    </div>
+  </nav>
+</header>
+
+<div class="page-hero barkcloth">
+  <div class="page-hero-art" aria-hidden="true">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="150" cy="40" r="30" fill="rgba(227,168,87,0.18)"/>
+      <path d="M60 130 Q40 120 42 100 Q44 84 60 84 Q64 84 68 88 L100 118 L132 88 Q136 84 140 84 Q156 84 158 100 Q160 120 140 130 L100 156 Z"
+        fill="rgba(246,240,228,0.10)" stroke="rgba(227,168,87,0.45)" stroke-width="2.5"/>
+      <path d="M100 60 q0-16 14-16 q12 0 12 12 q0 10-12 20 q-12-10-14-16Z" fill="rgba(227,168,87,0.5)"/>
+    </svg>
+  </div>
+  <div class="page-hero-inner">
+    <p class="eyebrow light">GIVE YOUR TIME</p>
+    <h1>Come sit with a child. It matters as much as money.</h1>
+    <p class="lead">Many of our children need presence just as much as provision. Visit, mentor, tutor, or simply talk — your time changes a day for someone.</p>
+  </div>
+</div>
+
+<section class="block tight">
+  <div class="grid3">
+    <div class="weave-card">
+      <h3 style="font-size:1rem;">Visit &amp; Mentor</h3>
+      <p style="font-size:0.9rem;">Spend an afternoon with the children — play, talk, listen.</p>
+    </div>
+    <div class="weave-card">
+      <h3 style="font-size:1rem;">Tutor &amp; Read</h3>
+      <p style="font-size:0.9rem;">Support lessons at Home Care Academy or read with younger children.</p>
+    </div>
+    <div class="weave-card">
+      <h3 style="font-size:1rem;">Share a Skill</h3>
+      <p style="font-size:0.9rem;">Music, sport, craft, storytelling — anything you're good at, they'd love to learn.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="donate-form-panel fade-in">
+    <p class="eyebrow">APPLY TO VOLUNTEER</p>
+    <h2 style="font-size:1.5rem; margin-top:6px; margin-bottom:16px;">Tell us a bit about yourself.</h2>
+
+    <div class="form-note">
+      We'll follow up by email or phone, and arrange a simple background check before any visit to the children — this protects them, and you.
+    </div>
+
+    <form data-validate>
+      <div class="form-grid">
+        <div class="field">
+          <label for="v-name">Full name *</label>
+          <input type="text" id="v-name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="v-phone">Phone or WhatsApp *</label>
+          <input type="tel" id="v-phone" name="phone" required>
+        </div>
+        <div class="field">
+          <label for="v-location">Your location / district</label>
+          <input type="text" id="v-location" name="location">
+        </div>
+        <div class="field">
+          <label for="v-frequency">How often can you visit?</label>
+          <select id="v-frequency" name="frequency">
+            <option>Weekly</option>
+            <option>Monthly</option>
+            <option>Occasionally</option>
+            <option>Just once, to start</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="v-skills">What would you like to offer? *</label>
+          <textarea id="v-skills" name="skills" required placeholder="e.g. tutoring, music, sport, mentorship, just spending time..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:6px;">Submit application</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col" style="max-width:280px;">
+      <h5>HOME CARE UGANDA</h5>
+      <p>A home, a school, and a family for orphaned and vulnerable children in Uganda — built from lived experience, sustained by community.</p>
+    </div>
+    <div class="footer-col">
+      <h5>EXPLORE</h5>
+      <a href="about.html">About Us</a>
+      <a href="programs.html">Programs</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="register.html">Register a Child</a>
+    </div>
+    <div class="footer-col">
+      <h5>SUPPORT</h5>
+      <a href="donate.html">Donate Money</a>
+      <a href="volunteer.html">Volunteer Your Time</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Home Care Uganda. Built with love — not a scam, just a promise kept.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

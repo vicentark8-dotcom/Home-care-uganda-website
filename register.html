@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register a Child — Home Care Uganda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="register">
+
+<header>
+  <nav>
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-name">Home Care Uganda<small>SCHOOL &amp; FAMILY ORGANIZATION</small></div>
+    </div>
+    <button class="hamburger" id="hamburger">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a data-nav="home" href="index.html">Home</a>
+      <a data-nav="about" href="about.html">About Us</a>
+      <a data-nav="programs" href="programs.html">Programs</a>
+      <a data-nav="volunteer" href="volunteer.html">Volunteer</a>
+      <a data-nav="register" href="register.html">Register a Child</a>
+      <a data-nav="contact" href="contact.html">Contact</a>
+      <a data-nav="donate" href="donate.html" class="cta">Donate</a>
+    </div>
+  </nav>
+</header>
+
+<div class="page-hero barkcloth">
+  <div class="page-hero-art" aria-hidden="true">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="150" cy="40" r="30" fill="rgba(227,168,87,0.18)"/>
+      <path d="M40 120 L100 72 L160 120 V160 H40 Z" fill="rgba(246,240,228,0.09)" stroke="rgba(227,168,87,0.4)" stroke-width="2.5"/>
+      <path d="M30 128 L100 74 L170 128" fill="none" stroke="rgba(227,168,87,0.5)" stroke-width="3" stroke-linecap="round"/>
+      <rect x="88" y="128" width="24" height="32" rx="3" fill="rgba(227,168,87,0.35)"/>
+      <circle cx="70" cy="150" r="10" fill="rgba(227,168,87,0.4)"/>
+      <path d="M60 170 Q60 156 70 156 Q80 156 80 170" fill="rgba(227,168,87,0.4)"/>
+    </svg>
+  </div>
+  <div class="page-hero-inner">
+    <p class="eyebrow light">REGISTER A CHILD</p>
+    <h1>Apply for a child to join the Home Care Uganda community.</h1>
+    <p class="lead">For parents, guardians, relatives, or community members referring a child who needs care. Every application is reviewed carefully and followed by a personal interview — no child is admitted without one.</p>
+  </div>
+</div>
+
+<section class="block tight">
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Submit application</h4>
+      <p>Fill in the form below with honest, basic details about the child's situation.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Admin review</h4>
+      <p>Our team reads every application and reaches out within a few days.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Interview &amp; home visit</h4>
+      <p>We meet the child and guardian/referrer in person to understand the situation fully.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Decision</h4>
+      <p>We confirm whether the child qualifies for a place in our care, based on need and capacity.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="donate-form-panel fade-in">
+    <p class="eyebrow">CHILD REGISTRATION FORM</p>
+    <h2 style="font-size:1.5rem; margin-top:6px; margin-bottom:16px;">Tell us about the child.</h2>
+
+    <div class="form-note">
+      Please share only basic details here. Sensitive information (medical history, trauma, or documents) is best discussed privately during the interview rather than submitted through this public form.
+    </div>
+
+    <form data-validate>
+
+      <fieldset>
+        <legend>Child's details</legend>
+        <div class="form-grid">
+          <div class="field">
+            <label for="c-name">Child's full name *</label>
+            <input type="text" id="c-name" name="child_name" required>
+          </div>
+          <div class="field">
+            <label for="c-dob">Date of birth / approximate age *</label>
+            <input type="text" id="c-dob" name="child_dob" placeholder="e.g. 7 years old" required>
+          </div>
+          <div class="field">
+            <label for="c-gender">Gender</label>
+            <select id="c-gender" name="child_gender">
+              <option value="">Prefer not to say</option>
+              <option>Female</option>
+              <option>Male</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="c-district">Current location / district *</label>
+            <input type="text" id="c-district" name="child_location" required>
+          </div>
+          <div class="field full">
+            <label for="c-situation">Briefly describe the child's current situation *</label>
+            <textarea id="c-situation" name="child_situation" required placeholder="e.g. lost both parents, currently staying with an elderly relative who cannot support them..."></textarea>
+            <span class="hint">A short honest summary is enough for now — we'll go deeper together during the interview.</span>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your details (parent, guardian, or referrer)</legend>
+        <div class="form-grid">
+          <div class="field">
+            <label for="r-name">Your full name *</label>
+            <input type="text" id="r-name" name="referrer_name" required>
+          </div>
+          <div class="field">
+            <label for="r-relationship">Your relationship to the child *</label>
+            <input type="text" id="r-relationship" name="referrer_relationship" placeholder="e.g. mother, uncle, neighbor, church leader" required>
+          </div>
+          <div class="field">
+            <label for="r-phone">Phone / WhatsApp *</label>
+            <input type="tel" id="r-phone" name="referrer_phone" required>
+          </div>
+          <div class="field">
+            <label for="r-email">Email (optional)</label>
+            <input type="email" id="r-email" name="referrer_email">
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="consent-row">
+        <input type="checkbox" id="consent" name="consent" required>
+        <label for="consent">I understand this is an application, not a guarantee of admission. I consent to being contacted for an interview and, if needed, a home visit, and I confirm the information above is true to the best of my knowledge. *</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Submit application</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col" style="max-width:280px;">
+      <h5>HOME CARE UGANDA</h5>
+      <p>A home, a school, and a family for orphaned and vulnerable children in Uganda — built from lived experience, sustained by community.</p>
+    </div>
+    <div class="footer-col">
+      <h5>EXPLORE</h5>
+      <a href="about.html">About Us</a>
+      <a href="programs.html">Programs</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="register.html">Register a Child</a>
+    </div>
+    <div class="footer-col">
+      <h5>SUPPORT</h5>
+      <a href="donate.html">Donate Money</a>
+      <a href="volunteer.html">Volunteer Your Time</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Home Care Uganda. Built with love — not a scam, just a promise kept.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
