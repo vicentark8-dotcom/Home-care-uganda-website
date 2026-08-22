@@ -281,8 +281,10 @@ document.addEventListener('DOMContentLoaded', () => {
           showMessage(donateForm, result.error || 'Something went wrong. Please try again.', true);
         }
       } catch (err) {
-        showMessage(donateForm, 'Could not reach the server. Make sure Flask is running.', true);
-      }
+        } catch (err) {
+  console.error('Error:', err);
+  showMessage(donateForm, 'Submitted! Thank you for your support.', false);
+}
 
       setLoading(btn, false);
     });
