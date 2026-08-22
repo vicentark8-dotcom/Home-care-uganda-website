@@ -261,13 +261,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const frequency    = activeFreq ? activeFreq.textContent : 'One-time';
 
       const data = {
-        donor_name:    donateForm.querySelector('[name="name"]')?.value.trim()    || '',
-        amount:        amount,
-        currency:      'USD',
-        donation_type: `${frequency} — ${method}`,
-        notes:         donateForm.querySelector('[name="message"]')?.value.trim() || '',
-      };
-
+  name: donateForm.querySelector('[name="name"]')?.value.trim() || '',
+  email: donateForm.querySelector('[name="email"]')?.value.trim() || '',
+  amount: amount,
+  message: donateForm.querySelector('[name="message"]')?.value.trim() || '',
+  type: 'donation'
+};
       try {
         const res    = await fetch(`${BACKEND_URL}/api/donate`, {
           method:  'POST',
