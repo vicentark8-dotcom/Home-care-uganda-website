@@ -3,7 +3,7 @@
    Link this file before </body> on every page: <script src="script.js"></script>
    =========================================================== */
 
-const BACKEND_URL = "https://backend-home-care-uganda-production.up.railway.app";
+const BACKEND_URL = "https://backend-home-care-uganda.onrender.com";
 
 document.addEventListener('DOMContentLoaded', () => {
 
