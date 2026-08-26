@@ -1,9 +1,11 @@
 /* ===========================================================
-   HOME CARE UGANDA — SHARED SCRIPT  (v5, rebuilt & tested)
-   Link this file before </body> on every page: <script src="script.js"></script>
+   HOME CARE UGANDA — SHARED SCRIPT (Web3Forms version)
+   All forms now send emails directly via Web3Forms.
+   No backend server required.
    =========================================================== */
 
-const BACKEND_URL = "https://backend-home-care-uganda.onrender.com";
+// ===== WEB3FORMS CONFIG =====
+const WEB3FORMS_KEY = "93ba46aa-62c2-4803-ae2e-c1183ecfba39";
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -66,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Note: method chips are now Western Union – but we keep the logic harmless
   const methodChips = document.querySelectorAll('.method-chip');
   methodChips.forEach(chip => {
     chip.addEventListener('click', () => {
@@ -85,12 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   runReveal();
 
   /* ----------------------------------------------------------------
-     FORM SUBMISSIONS
-     Every form below is sent as JSON to the Flask backend. The keys
-     in each `data` object match exactly what the backend expects —
-     this pairing has been tested end-to-end, so if you ever add a
-     field, add it in three places: the <input name="...">, here,
-     and the matching data.get("...") in homecare_flask_backend.py.
+     FORM SUBMISSIONS — NOW ALL SENT DIRECTLY TO WEB3FORMS
      ---------------------------------------------------------------- */
 
   function showMessage(form, message, isError = false) {
@@ -136,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return ok;
   }
 
-  // Shared submit handler: posts JSON, always resolves to a clear message.
+  // Shared submit handler – sends data to Web3Forms instead of Flask
   async function submitForm(form, endpoint, buildPayload, successText) {
     const btn = form.querySelector('button[type="submit"]');
     if (btn && !btn.dataset.originalText) btn.dataset.originalText = btn.textContent;
@@ -149,24 +147,44 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       setLoading(btn, true);
+      const data = buildPayload();
+
+      // Build a readable message for the email
+      let messageBody = `Form: ${endpoint}\n\n`;
+      for (const [key, value] of Object.entries(data)) {
+        if (value) messageBody += `${key}: ${value}\n`;
+      }
+
+      // Prepare Web3Forms payload
+      const payload = {
+        access_key: WEB3FORMS_KEY,
+        subject: `Home Care Uganda - ${endpoint.replace('/api/', '').replace(/-/g, ' ')}`,
+        from_name: data.name || data.donor_name || data.referrer_name || 'Visitor',
+        email: data.email || data.donor_email || data.referrer_email || 'visitor@example.com',
+        message: messageBody
+      };
+
       try {
-        const res = await fetch(`${BACKEND_URL}${endpoint}`, {
+        const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(buildPayload())
+          body: JSON.stringify(payload)
         });
-
-        let result = {};
-        try { result = await res.json(); } catch (_) { /* non-JSON response */ }
+        const result = await res.json();
 
         if (res.ok && result.success) {
           showMessage(form, successText);
           form.reset();
+          // Reset tier selection if on donate page
+          if (document.querySelector('.tier-card')) {
+            document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
+          }
         } else {
-          showMessage(form, result.error || 'Something went wrong. Please try again.', true);
+          showMessage(form, 'Error: ' + (result.message || 'Something went wrong. Please try again.'), true);
         }
       } catch (err) {
-        showMessage(form, 'Could not reach the server. Please check your connection and try again.', true);
+        showMessage(form, 'Network error – please check your connection and try again.', true);
+        console.error(err);
       }
       setLoading(btn, false);
     });
@@ -181,9 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const amount = (customAmt && customAmt.value) ? customAmt.value
                    : (selectedTier ? selectedTier.dataset.amount : '');
 
-      const activeMethod = document.querySelector('.method-chip.active');
-      const method = activeMethod ? activeMethod.textContent : '';
-
       const activeFreq = document.querySelector('.tier-toggle button.active');
       const frequency = activeFreq ? activeFreq.textContent : 'One-time';
 
@@ -191,10 +206,10 @@ document.addEventListener('DOMContentLoaded', () => {
         name:    donateForm.querySelector('[name="name"]')?.value.trim()    || '',
         email:   donateForm.querySelector('[name="email"]')?.value.trim()   || '',
         amount:  amount,
-        message: donateForm.querySelector('[name="message"]')?.value.trim() || '',
-        type:    `${frequency} — ${method}`
+        frequency: frequency,
+        mtcn_or_message: donateForm.querySelector('[name="message"]')?.value.trim() || ''
       };
-    }, '✓ Thank you! Your donation details have been received. We will contact you with payment instructions.');
+    }, '✅ Thank you! Your donation details have been sent. We will confirm receipt of your Western Union transfer within 24 hours.');
   }
 
   /* ---- VOLUNTEER FORM ---- */
@@ -207,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
       location:  volunteerForm.querySelector('[name="location"]')?.value.trim()  || '',
       frequency: volunteerForm.querySelector('[name="frequency"]')?.value.trim() || '',
       skills:    volunteerForm.querySelector('[name="skills"]')?.value.trim()    || ''
-    }), '✓ Application submitted! We will contact you soon.');
+    }), '✅ Application submitted! We will contact you soon.');
   }
 
   /* ---- CHILD REGISTRATION FORM ---- */
@@ -223,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
       referrer_relationship: registerForm.querySelector('[name="referrer_relationship"]')?.value.trim()   || '',
       referrer_phone:        registerForm.querySelector('[name="referrer_phone"]')?.value.trim()          || '',
       referrer_email:        registerForm.querySelector('[name="referrer_email"]')?.value.trim()          || ''
-    }), '✓ Application received! Our team will be in touch within a few days.');
+    }), '✅ Application received! Our team will be in touch within a few days.');
   }
 
   /* ---- CONTACT FORM ---- */
@@ -233,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:    contactForm.querySelector('[name="name"]')?.value.trim()    || '',
       email:   contactForm.querySelector('[name="email"]')?.value.trim()   || '',
       message: contactForm.querySelector('[name="message"]')?.value.trim() || ''
-    }), '✓ Message sent! We will get back to you soon.');
+    }), '✅ Message sent! We will get back to you soon.');
   }
 
 });
