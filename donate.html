@@ -29,22 +29,17 @@
   </nav>
 </header>
 
-<!-- DONATION HERO with illustrated background art (child at a water source, drawn in-house — not a stock photo) -->
+<!-- DONATION HERO with illustrated background art -->
 <div class="donate-hero">
   <div class="donate-hero-art" aria-hidden="true">
     <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
-      <!-- sun -->
       <circle cx="300" cy="90" r="66" fill="rgba(227,168,87,0.22)"/>
-      <!-- ground -->
       <line x1="40" y1="530" x2="380" y2="530" stroke="rgba(227,168,87,0.25)" stroke-width="2" stroke-dasharray="4 8"/>
-      <!-- well / water point -->
       <rect x="255" y="470" width="70" height="16" rx="4" fill="rgba(246,240,228,0.10)"/>
       <path d="M270 470 v-40 a20 20 0 0140 0 v40" fill="none" stroke="rgba(227,168,87,0.35)" stroke-width="4"/>
       <circle cx="290" cy="430" r="6" fill="rgba(227,168,87,0.4)"/>
-      <!-- water droplets -->
       <path d="M300 500 q5 8 0 14 q-5-2-5-8 q0-4 5-6z" fill="rgba(120,180,200,0.35)"/>
       <path d="M270 505 q4 6 0 11 q-4-1-4-6 q0-3 4-5z" fill="rgba(120,180,200,0.3)"/>
-      <!-- child figure carrying jerrycan -->
       <g>
         <circle cx="150" cy="230" r="24" fill="rgba(246,240,228,0.16)"/>
         <path d="M128 254 Q118 300 122 400 Q126 470 150 505 Q174 470 178 400 Q182 300 172 254 Q150 240 128 254 Z" fill="rgba(246,240,228,0.10)" stroke="rgba(227,168,87,0.30)" stroke-width="2"/>
@@ -98,11 +93,13 @@
       <span style="font-size:0.85rem; color:var(--ink-soft);">Every amount matters — there's no gift too small.</span>
     </div>
 
-    <p style="margin-top:26px; margin-bottom:8px; font-weight:700; font-size:0.9rem;">Choose a payment method</p>
-    <div class="donate-methods">
-      <div class="method-chip active">Mobile Money</div>
-      <div class="method-chip">Bank Transfer</div>
-      <div class="method-chip">Card / PayPal</div>
+    <!-- ===== WESTERN UNION DETAILS (Replaces payment methods) ===== -->
+    <div style="margin-top:26px; background:#FDF9F0; border:2px solid var(--gold); border-radius:12px; padding:20px;">
+      <p style="font-weight:700; margin:0 0 8px 0; font-size:1rem; color:var(--indigo);">💵 Send via Western Union</p>
+      <p style="margin:4px 0;"><strong>Name:</strong> Ssenono Vicent</p>
+      <p style="margin:4px 0;"><strong>Country:</strong> Uganda</p>
+      <p style="margin:4px 0;"><strong>Phone:</strong> +256 707 752 123</p>
+      <p style="margin:12px 0 0 0; font-size:0.85rem; color:var(--ink-soft);">After sending, enter the MTCN (Money Transfer Control Number) in the transaction field below.</p>
     </div>
 
     <form data-validate data-page-form="donate" style="margin-top:30px;">
@@ -116,13 +113,13 @@
           <input type="email" id="d-email" name="email" required>
         </div>
         <div class="field full">
-          <label for="d-message">Leave a message for the children (optional)</label>
-          <textarea id="d-message" name="message" placeholder="A word of encouragement, or why you're giving..."></textarea>
+          <label for="d-message">Western Union MTCN / Transaction Reference *</label>
+          <textarea id="d-message" name="message" placeholder="Enter the 10-digit MTCN number from Western Union" required></textarea>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:6px;">Continue to payment</button>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:6px;">Confirm Donation</button>
       <p style="font-size:0.76rem; color:#9A9080; margin-top:14px; text-align:center;">
-        This currently sends the donor's details and intended amount to vicentark8@gmail.com — it does not process real payment yet. You'll still need to connect an actual payment provider (mobile money, Flutterwave, PayPal) separately so money can actually be collected.
+        Your donation details will be sent via email to vicentark8@gmail.com. We will confirm receipt of your Western Union transfer within 24 hours.
       </p>
     </form>
   </div>
